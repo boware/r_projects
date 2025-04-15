@@ -1,0 +1,57 @@
+---
+title: "📊 Portfolio Performance Analysis with Real-Time Data"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# 📖 Overview
+
+This report analyzes a portfolio composed of five assets, using real-time historical stock prices from Yahoo Finance. It calculates returns, evaluates performance metrics, and visualizes the portfolio’s risk and growth.
+
+---
+
+# 📥 Data Collection
+
+```{r data-collection, echo=TRUE}
+source("R/01_data_collection.R")
+```
+# 📈 Return Calculations
+```{r return_calculations, echo=TRUE}
+source("R/02_return_calculation.R")
+```
+# 📊 Risk & Performance Metrics
+```{r risk_metrics, echo=TRUE}
+source("R/03_risk_metrics.R")
+```
+# 📉 Visualisations
+```{r visualisations, echo=TRUE}
+source("R/04_visualisations.R")
+```
+
+
+# 📚 Summary & Insights
+
+Based on the live portfolio analysis using real-time data from Yahoo Finance, the following key performance and risk metrics were observed:
+
+- **Annualized Return**: `r round(annualized_metrics[1,1] * 100, 2)`%
+- **Sharpe Ratio**: `r round(sharpe_ratio, 2)`
+- **Maximum Drawdown**: `r round(drawdown * 100, 2)`%
+- **Value at Risk (95%)**: `r round(value_at_risk, 4)`
+
+### 📌 Key Observations
+
+- The portfolio achieved a steady annualized return, indicating consistent growth potential across the selected assets.
+- The **Sharpe Ratio** suggests that the portfolio offered a favorable return relative to its risk, outperforming the risk-free rate on an annualized basis.
+- The **Maximum Drawdown** highlights the largest observed peak-to-trough decline, which is crucial for understanding potential losses during volatile market conditions.
+- The **Value at Risk (95%)** measures the potential maximum loss in a single day under normal market conditions with a 95% confidence level.
+
+### 📈 Portfolio Behavior
+
+- **SPY (S&P 500 ETF)** provided a stabilizing effect in the portfolio, reducing overall volatility due to its diversified exposure to the broader market.
+- **TSLA and GOOG** contributed higher volatility but also drove significant returns, highlighting the benefits of including growth-oriented stocks.
+- Equal-weighting the portfolio ensured balanced exposure, minimizing concentration risk from any single asset.
+
+### 📝 Final Insights
+
+This live analysis demonstrates the practical application of real-time financial data in portfolio performance evaluation and risk management. It showcases
